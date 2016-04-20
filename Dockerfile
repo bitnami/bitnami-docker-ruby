@@ -2,8 +2,8 @@ FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r05
 MAINTAINER Bitnami <containers@bitnami.com>
 
 ENV BITNAMI_APP_NAME=ruby \
-    BITNAMI_APP_VERSION=2.3.0-1 \
-    BITNAMI_APP_CHECKSUM=05cc9a1d740418633c6a83038e62c3287270bdc1bb16a78a0810f105ee938812
+    BITNAMI_APP_VERSION=2.3.0-6 \
+    BITNAMI_APP_CHECKSUM=e5b6da98d31971d35e272f52023f6c4548083188b75f1b0af0c02a3cdc1879be
 
 # Install application
 RUN bitnami-pkg install $BITNAMI_APP_NAME-$BITNAMI_APP_VERSION --checksum $BITNAMI_APP_CHECKSUM
