@@ -14,7 +14,7 @@ COPY rootfs/ /
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["irb"]
 
-WORKDIR /app
-
 # Exposing ports
 EXPOSE 3000
+
+WORKDIR /app
