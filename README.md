@@ -247,6 +247,9 @@ bats test.sh
 
 # Notable Changes
 
+## 2.3.1-r0 (2016-05-11)
+- Commands are now executed as the `root` user. If you wish to use some other user, please specify the `--user` argument to specify the username on the docker command line or specify the command using `sudo`
+
 ## 2.2.3-0-r02 (2015-09-30)
 
 - `/app` directory no longer exported as a volume. This caused problems when building on top of the image, since changes in the volume were not persisted between RUN commands. To keep the previous behavior (so that you can mount the volume in another container), create the container with the `-v /app` option.
