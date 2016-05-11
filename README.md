@@ -1,5 +1,5 @@
-[![Build
-Status](http://bitnami-container-builds.bitnamiapp.com/jenkins/buildStatus/icon?job=docker-ruby)](http://bitnami-container-builds.bitnamiapp.com/jenkins/job/docker-ruby/)
+[![Build Status](http://bitnami-container-builds.bitnamiapp.com/jenkins/buildStatus/icon?job=docker-ruby)](http://bitnami-container-builds.bitnamiapp.com/jenkins/job/docker-ruby/)
+
 # What is Ruby?
 
 > Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.
@@ -9,14 +9,14 @@ Status](http://bitnami-container-builds.bitnamiapp.com/jenkins/buildStatus/icon?
 # TLDR
 
 ```bash
-docker run -it --name ruby -v /path/to/app:/app bitnami/ruby
+docker run -it --name ruby -v /path/to/app:/app bitnami/ruby:latest ruby script.rb
 ```
 
 ## Docker Compose
 
 ```
 ruby:
-  image: bitnami/ruby
+  image: bitnami/ruby:latest
   command: ruby script.rb
   volumes:
     - /path/to/app:/app
@@ -39,7 +39,7 @@ docker pull bitnami/ruby:[TAG]
 If you wish, you can also build the image yourself.
 
 ```bash
-docker build -t bitnami/ruby https://github.com/bitnami/bitnami-docker-ruby.git
+docker build -t bitnami/ruby:latest https://github.com/bitnami/bitnami-docker-ruby.git
 ```
 
 # Entering the REPL
@@ -47,7 +47,7 @@ docker build -t bitnami/ruby https://github.com/bitnami/bitnami-docker-ruby.git
 By default, running this image will drop you into the Ruby REPL (`irb`), where you can interactively test and try things out in Ruby.
 
 ```bash
-docker run -it --name ruby bitnami/ruby
+docker run -it --name ruby bitnami/ruby:latest
 ```
 
 **Further Reading:**
@@ -59,7 +59,7 @@ docker run -it --name ruby bitnami/ruby
 The default work directory for the Ruby image is `/app`. You can mount a folder from your host here that includes your Ruby script, and run it normally using the `ruby` command.
 
 ```bash
-docker run -it --name ruby -v /path/to/app:/app bitnami/ruby \
+docker run -it --name ruby -v /path/to/app:/app bitnami/ruby:latest \
   ruby script.rb
 ```
 
@@ -68,7 +68,7 @@ docker run -it --name ruby -v /path/to/app:/app bitnami/ruby \
 If your Ruby app has a `Gemfile` defining your app's dependencies and start script, you can install the dependencies before running your app.
 
 ```bash
-docker run -it --name ruby -v /path/to/app:/app bitnami/ruby \
+docker run -it --name ruby -v /path/to/app:/app bitnami/ruby:latest \
   sh -c "bundle install && ruby script.rb"
 ```
 
@@ -76,7 +76,7 @@ or using Docker Compose:
 
 ```
 ruby:
-  image: bitnami/ruby
+  image: bitnami/ruby:latest
   command: "sh -c 'bundle install && ruby script.rb'"
 ```
 
@@ -105,7 +105,7 @@ end
 To access your web server from your host machine you can ask Docker to map a random port on your host to port `3000` inside the container.
 
 ```bash
-docker run -it --name ruby -P bitnami/ruby
+docker run -it --name ruby -P bitnami/ruby:latest
 ```
 
 Run `docker port` to determine the random port Docker assigned.
@@ -118,7 +118,7 @@ $ docker port ruby
 You can also manually specify the port you want forwarded from your host to the container.
 
 ```bash
-docker run -it --name ruby -p 8080:3000 bitnami/ruby
+docker run -it --name ruby -p 8080:3000 bitnami/ruby:latest
 ```
 
 Access your web server in the browser by navigating to [http://localhost:8080](http://localhost:8080/).
@@ -161,14 +161,14 @@ Copy the virtual host above, saving the file somewhere on your host. We will mou
 Docker's linking system uses container ids or names to reference containers. We can explicitly specify a name for our Ruby server to make it easier to connect to other containers.
 
 ```
-docker run -it --name ruby -v /path/to/app:/app bitnami/ruby ruby script.rb
+docker run -it --name ruby -v /path/to/app:/app bitnami/ruby:latest ruby script.rb
 ```
 
 or using Docker Compose:
 
 ```
 ruby:
-  image: bitnami/ruby
+  image: bitnami/ruby:latest
   command: ruby script.rb
   volumes:
     - /path/to/app:/app
@@ -181,14 +181,14 @@ Now that we have our Ruby server running, we can create another container that l
 ```bash
 docker run -it -v /path/to/vhost.conf:/bitnami/nginx/conf/vhosts/yourapp.conf \
   --link ruby:yourapp \
-  bitnami/nginx
+  bitnami/nginx:latest
 ```
 
 or using Docker Compose:
 
 ```
 nginx:
-  image: bitnami/nginx
+  image: bitnami/nginx:latest
   links:
     - ruby:yourapp
   volumes:
@@ -245,7 +245,7 @@ This image is tested for expected runtime behavior, using the [Bats](https://git
 bats test.sh
 ```
 
-# Changelog
+# Notable Changes
 
 ## 2.2.3-0-r02 (2015-09-30)
 
@@ -267,8 +267,7 @@ If you encountered a problem running this container, you can file an [issue](htt
 - Docker version (`docker version`)
 - Output of `docker info`
 - Version of this container (`echo $BITNAMI_APP_VERSION` inside the container)
-- The command you used to run the container, and any relevant output you saw (masking any sensitive
-information)
+- The command you used to run the container, and any relevant output you saw (masking any sensitive information)
 
 # License
 Copyright 2015 Bitnami

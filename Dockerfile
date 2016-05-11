@@ -1,20 +1,14 @@
 FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r06
 MAINTAINER Bitnami <containers@bitnami.com>
 
-ENV BITNAMI_APP_NAME=ruby \
-    BITNAMI_APP_VERSION=2.3.1-0 \
-    BITNAMI_APP_CHECKSUM=b0398dceb2929572a7cbad61de9fe13ac92835eecbf7f2e5ef7cbc35dfa7c327
+ENV BITNAMI_IMAGE_VERSION=2.3.1-r0 \
+    BITNAMI_APP_NAME=ruby
 
-# Install application
-RUN bitnami-pkg install $BITNAMI_APP_NAME-$BITNAMI_APP_VERSION --checksum $BITNAMI_APP_CHECKSUM
+RUN bitnami-pkg install ruby-2.3.1-1 --checksum a81395976c85e8b7c8da3c1db6385d0e909bd05d9a3c1527f8fa36b8eb093d84
 ENV PATH=/opt/bitnami/$BITNAMI_APP_NAME/bin:/opt/bitnami/sqlite/bin:/opt/bitnami/common/bin:$PATH
 
-# Setting entry point
-COPY rootfs/ /
-ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["irb"]
 
-# Exposing ports
-EXPOSE 3000
-
 WORKDIR /app
+
+EXPOSE 3000
