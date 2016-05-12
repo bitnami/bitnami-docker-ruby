@@ -1,4 +1,4 @@
-FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r06
+FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r07
 MAINTAINER Bitnami <containers@bitnami.com>
 
 ENV BITNAMI_IMAGE_VERSION=2.3.1-r0 \
