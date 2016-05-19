@@ -248,7 +248,7 @@ bats test.sh
 # Notable Changes
 
 ## 2.3.1-r0 (2016-05-11)
-- Commands are now executed as the `root` user. If you wish to use some other user, please specify the `--user` argument to specify the username on the docker command line or specify the command using `sudo`
+- Commands are now executed as the `root` user. Use the `--user` argument to switch to another user or change to the required user using `sudo` to launch applications. Alternatively, as of Docker 1.10 User Namespaces are supported by the docker daemon. Refer to the [daemon user namespace options](https://docs.docker.com/engine/reference/commandline/daemon/#daemon-user-namespace-options) for more details.
 
 ## 2.2.3-0-r02 (2015-09-30)
 
