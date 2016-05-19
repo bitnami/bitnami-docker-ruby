@@ -19,7 +19,7 @@ ruby:
   image: bitnami/ruby:latest
   command: ruby script.rb
   volumes:
-    - /path/to/app:/app
+    - .:/app
 ```
 
 # Get this image
@@ -78,6 +78,8 @@ or using Docker Compose:
 ruby:
   image: bitnami/ruby:latest
   command: "sh -c 'bundle install && ruby script.rb'"
+  volumes:
+    - .:/app
 ```
 
 **Further Reading:**
@@ -171,7 +173,7 @@ ruby:
   image: bitnami/ruby:latest
   command: ruby script.rb
   volumes:
-    - /path/to/app:/app
+    - .:/app
 ```
 
 ### Step 3: Run the nginx image and link it to the Ruby server
