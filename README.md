@@ -9,7 +9,7 @@
 # TLDR
 
 ```bash
-docker run -it --name ruby -v /path/to/app:/app bitnami/ruby:latest ruby script.rb
+docker run -it --name ruby bitnami/ruby:latest
 ```
 
 ## Docker Compose
