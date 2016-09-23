@@ -11,11 +11,11 @@
 ##   Connect to the container at DOCKER_IP:3000
 ##     replacing DOCKER_IP for the IP of your active docker host
 
-FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r9
+FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r10
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
-ENV STACKSMITH_STACK_ID="0qptk3b" \
+ENV STACKSMITH_STACK_ID="khk4rjw" \
     STACKSMITH_STACK_NAME="Ruby for bitnami/bitnami-docker-ruby" \
     STACKSMITH_STACK_PRIVATE="1"
 
